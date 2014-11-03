@@ -1,6 +1,5 @@
 var specialConsole = (function SpecialConsole() {
     function FormatText() {
-        arguments = arguments[0];
         if (arguments.length == 1) {
             return arguments[0];
         }
@@ -18,15 +17,15 @@ var specialConsole = (function SpecialConsole() {
     }
 
     function WriteLine() {
-      console.log(FormatText(arguments));
+      console.log(FormatText.apply(this,arguments));
     }
 
     function WriteWarning() {
-        console.warn(FormatText(arguments));
+        console.warn(FormatText.apply(this,arguments));
     }
 
     function WriteError() {
-        console.error(FormatText(arguments));
+        console.error(FormatText.apply(this,arguments));
     }
 
 
